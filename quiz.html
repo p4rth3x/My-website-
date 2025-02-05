@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="quiz-heading">Quiz</h1>
+        <form onsubmit="saveResults(event)">
+            <div class="questions-container">
+                <div class="question">
+                    <label for="q1">What is 2 + 2?</label>
+                    <input type="text" id="q1" name="q1">
+                </div>
+
+                <div class="question">
+                    <label for="q2">Who is the current US President?</label>
+                    <input type="text" id="q2" name="q2">
+                </div>
+
+                <div class="question">
+                    <label for="q3">What is the capital of France?</label>
+                    <input type="text" id="q3" name="q3">
+                </div>
+
+                <div class="question">
+                    <label for="q4">Who wrote 'To Kill a Mockingbird'?</label>
+                    <input type="text" id="q4" name="q4">
+                </div>
+
+                <div class="question">
+                    <label for="q5">What is the square root of 64?</label>
+                    <input type="text" id="q5" name="q5">
+                </div>
+
+                <div class="question">
+                    <label for="q6">Which planet is known as the Red Planet?</label>
+                    <input type="text" id="q6" name="q6">
+                </div>
+
+                <div class="question">
+                    <label for="q7">What is the largest ocean on Earth?</label>
+                    <input type="text" id="q7" name="q7">
+                </div>
+
+                <div class="question">
+                    <label for="q8">Who painted the Mona Lisa?</label>
+                    <input type="text" id="q8" name="q8">
+                </div>
+            </div>
+
+            <input type="submit" class="submit-btn" value="Submit">
+        </form>
+    </div>
+
+    <script>
+        function saveResults(event) {
+            event.preventDefault();
+            let results = {
+                q1: document.getElementById("q1").value,
+                q2: document.getElementById("q2").value,
+                q3: document.getElementById("q3").value,
+                q4: document.getElementById("q4").value,
+                q5: document.getElementById("q5").value,
+                q6: document.getElementById("q6").value,
+                q7: document.getElementById("q7").value,
+                q8: document.getElementById("q8").value
+            };
+            localStorage.setItem("quizResults", JSON.stringify(results));
+            window.location.href = "thankyou.html";
+        }
+    </script>
+</body>
+</html>
